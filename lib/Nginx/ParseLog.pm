@@ -46,29 +46,29 @@ sub parse {
   
     #                      ip         remote_user   time         request    status   bytes_send  referer    user_agent
     if ( $log_string =~ m/^($ip)\s-\s (.*?)\s         \[(.*?)\]\s  "(.*?)"\s  (\d+)\s  (\d+)\s     "(.*?)"\s  "(.*?)"$/x) {
-	my $deparsed = { };
-	my $c = 0;
+        my $deparsed = { };
+        my $c = 0;
         
-	my @field_list = qw/
+        my @field_list = qw/
             ip 		
-	    remote_user
+            remote_user
             time     
             request 
             status  
             bytes_send
             referer  
             user_agent 
-	/;
+        /;
 
-	{
-	    no strict 'refs'; # some Perl magic
+        {
+            no strict 'refs'; # some Perl magic
 
-	    for (@field_list) {
-	        $deparsed->{ $_  } = ${ ++$c };
+            for (@field_list) {
+                $deparsed->{ $_  } = ${ ++$c };
             }
-	}
-	
-	return $deparsed;
+        }
+        
+        return $deparsed;
     } else {
         return;
     }

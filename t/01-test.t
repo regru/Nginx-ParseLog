@@ -24,7 +24,7 @@ my $test = <<DOC;
 DOC
 
 my $deparsed = [
-	 {
+         {
           'request' => '-',
           'user_agent' => '-',
           'status' => '400',
@@ -34,7 +34,7 @@ my $deparsed = [
           'remote_user' => '-',
           'referer' => '-'
          },
-	 {
+         {
           'request' => '-',
           'user_agent' => '-',
           'status' => '400',
